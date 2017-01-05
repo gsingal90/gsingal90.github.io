@@ -24,4 +24,42 @@ $(document).ready(function(){
     $('#offCanvasLeft').foundation('close');
   });
 
+  $('#contactme-form').submit(function(e){
+    if ($('#contactme-form').find('.form-error.is-visible').length || $('form').find('.is-invalid-label').length) {
+      $('#contactme .success').hide();
+    }
+    else {
+      if(grecaptcha.getResponse() === "") {
+        $('#contactme .custom').show();
+        return;
+      }
+      var data = {};
+      var URL = 'https://4qx0ylodic.execute-api.us-west-2.amazonaws.com/prod';
+      //var URL = 'https://jsonplaceholder.typicode.com/posts';
+
+      $( this ).serializeArray().map(function(x){data[x.name] = x.value;});
+      //data["captchaValue"] = grecaptcha.getResponse();
+
+      console.log(data);
+
+      $.ajax({
+        type: 'POST',
+        url: URL,
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function () {
+          console.log("success");
+          $('#contactme-form')[0].reset();
+          $('#contactme .success').show();
+          grecaptcha.reset();
+        },
+        error: function () {
+          console.log("failure");
+        }
+      });
+
+    }
+  });
+
 });

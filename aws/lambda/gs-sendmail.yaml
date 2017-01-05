@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Send Mail
+Resources:
+  gssendmail:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      CodeUri: .
+      Description: Send Mail
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::457724636829:role/lambda_basic_execution'

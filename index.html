@@ -21,6 +21,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T6LRZJG');</script>
     <!-- End Google Tag Manager -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -122,23 +123,25 @@
               </div>
               <div class="medium-6 columns"><h3><i class="fi-telephone"></i> 408-780-4302</h3></div>
               <div class="medium-6 columns"><h3><i class="fi-mail"></i> gsingal90@gmail.com</h3></div>
-              <form data-abide novalidate>
-                <div class="column"><div data-abide-error class="alert callout" style="display: none;">
-                  There are some errors in your form.
-                </div></div>
+              <form id="contactme-form" data-abide novalidate>
+                <div class="column">
+                  <div data-abide-error class="alert callout" style="display: none;">There are some errors in your form.</div>
+                  <div data-abide-error class="custom alert callout" style="display: none;">Please verify that you are not a robot.</div>
+                  <div data-abide-error class="success callout" style="display: none;">Thanks for reaching out. I'll get back to you soon.</div>
+                </div>
                 <div class="medium-6 columns">
                   <label>Name
-                    <input type="text" placeholder="Full Name" required>
+                    <input name="fullname" type="text" placeholder="Full Name" required>
                   </label>
                 </div>
                 <div class="medium-6 columns">
                   <label>Email
-                    <input type="text" placeholder="youremail@example.com" required pattern="email">
+                    <input name="email" type="text" placeholder="youremail@example.com" required pattern="email">
                   </label>
                 </div>
                 <div class="medium-6 columns">
                   <label>Phone
-                    <input type="text" placeholder="408-555-1212" required pattern="telephone">
+                    <input name="telephone" type="text" placeholder="408-555-1212" required pattern="telephone">
                   </label>
                 </div>
                 <fieldset class="medium-6 columns">
@@ -146,11 +149,14 @@
                     <input type="radio" name="customerType" value="Buyer" id="customerBuyer"><label for="customerBuyer">Buying</label>
                     <input type="radio" name="customerType" value="Seller" id="customerSeller"><label for="customerSeller">Selling</label>
                   </fieldset>
-                  <div class="medium-12 columns">
+                  <div class="column">
                     <label>
                       Tell me how I can help <small>(optional)</small>
-                      <textarea placeholder=""></textarea>
+                      <textarea name="message" placeholder=""></textarea>
                     </label>
+                  </div>
+                  <div class="column">
+                    <div class="g-recaptcha" data-sitekey="6Ld8qBAUAAAAAH0TjVRGdF7PpCpfqiUHW6C6OEs6"></div>
                   </div>
                   <div class="medium-12 columns text-center">
                     <button type="submit" class="button large">Send Message</button>

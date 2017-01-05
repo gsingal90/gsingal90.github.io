@@ -97,6 +97,14 @@ h1, h2, h3, h4, h5, h6 {
   color: $white;
 }
 
+.g-recaptcha {
+  margin: 0 0 1rem;
+
+  > div {
+    margin: 0 auto;
+  }
+}
+
 #aboutme {
   color: $white;
   background:
