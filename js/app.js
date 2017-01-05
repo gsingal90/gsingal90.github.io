@@ -38,9 +38,6 @@ $(document).ready(function(){
       //var URL = 'https://jsonplaceholder.typicode.com/posts';
 
       $( this ).serializeArray().map(function(x){data[x.name] = x.value;});
-      //data["captchaValue"] = grecaptcha.getResponse();
-
-      console.log(data);
 
       $.ajax({
         type: 'POST',
