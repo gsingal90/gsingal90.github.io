@@ -59,4 +59,7 @@ $(document).ready(function(){
     }
   });
 
+  $(".dynamic-email").append("<i class='fi-mail'></i> gsingal90@gmail.com");
+  $(".dynamic-phone").append("<i class='fi-telephone'></i> 408-780-4302");
+
 });
